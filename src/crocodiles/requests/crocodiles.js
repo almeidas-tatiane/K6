@@ -1,6 +1,6 @@
 import http from 'k6/http';
-import {check} from 'k6';
-import utils from "../utils/UrlProperties.js";
+import { check } from 'k6';
+import { urls } from '../../utils/UrlProperties.js';
 
 export default class Crocodiles {
 
@@ -10,14 +10,12 @@ export default class Crocodiles {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
-        http("Get All crocodiles -> /public/crocodiles/")
-        const response = http.get(`${utils.urls("api")}/public/crocodiles/`,sentHeaders)        
+        };
+
+        const response = http.get('Get All crocodiles -> /public/crocodiles/', `${urls('api')}/public/crocodiles/`, sentHeaders);
 
         check(response, {
             'Status code 200': (resp) => resp.status === 200,
         });
-
     }
-
 }
