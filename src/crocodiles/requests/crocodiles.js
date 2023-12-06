@@ -4,7 +4,7 @@ import utils from "../utils/UrlProperties.js";
 
 export default class Crocodiles {
 
-    getCrocodilesRequest() {
+    getAllCrocodiles() {
 
         const sentHeaders = {
             headers: {
