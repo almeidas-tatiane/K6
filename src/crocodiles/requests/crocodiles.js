@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check } from 'k6';
-import { urls } from '../../utils/UrlProperties.js';
+import { getUrlByKey } from '../../utils/urlProperties.js';
 
 export default class Crocodiles {
 
@@ -12,7 +12,7 @@ export default class Crocodiles {
             }
         };
 
-        const response = http.get('Get All crocodiles -> /public/crocodiles/', `${urls('api')}/public/crocodiles/`, sentHeaders);
+        const response = http.get(`${getUrlByKey('api')}/public/crocodiles/`, sentHeaders);
 
         check(response, {
             'Status code 200': (resp) => resp.status === 200,
