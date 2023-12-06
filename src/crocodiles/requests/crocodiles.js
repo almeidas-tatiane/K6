@@ -6,6 +6,8 @@ export default class Crocodiles {
 
     getAllCrocodiles() {
 
+        const requestName= 'GetAllCrocodiles';
+
         const sentHeaders = {
             headers: {
                 'Content-Type': 'application/json'
@@ -13,6 +15,7 @@ export default class Crocodiles {
         };
 
         const response = http.get(`${getUrlByKey('api')}/public/crocodiles/`, sentHeaders);
+
 
         check(response, {
             'Status code 200': (resp) => resp.status === 200,
