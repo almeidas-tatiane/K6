@@ -1,19 +1,23 @@
-import { readFileSync } from 'k6/fs';
-
-let properties = null;
-
 // Property file path
 const propertiesFilePath = 'resources/application.properties';
 
-// Reading the property file content 
-const fileContent = readFileSync(propertiesFilePath);
+// // Reading the property file content 
+// const fileContent = readFileSync(propertiesFilePath);
 
-// Property parse
-if (fileContent) {
-    properties = parseProperties (fileContent)
-} else {
-    console.error(`Failed to read file: ${propertiesFilePath}`);
-}
+// // Property parse
+// if (fileContent) {
+//     properties = parseProperties (fileContent)
+// } else {
+//     console.error(`Failed to read file: ${propertiesFilePath}`);
+// }
+
+// Reading the property file content
+export function readPropertiesFile(propertiesFilePath) {
+    const file = open(propertiesFilePath);
+    const content = read(file);
+    file.close();
+    return content;
+  }
 
 // Function to analyse the properties file
 function parseProperties(content) {
@@ -27,6 +31,10 @@ function parseProperties(content) {
     }
     return properties;
 }
+
+export function getUrl(propertiesFilePath) {
+    return properties
+  }
 
 // Function to get URLs
 export function urls(property) {
