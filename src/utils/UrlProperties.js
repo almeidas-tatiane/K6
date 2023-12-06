@@ -1,16 +1,6 @@
 // Property file path
 const propertiesFilePath = 'resources/application.properties';
 
-// // Reading the property file content 
-// const fileContent = readFileSync(propertiesFilePath);
-
-// // Property parse
-// if (fileContent) {
-//     properties = parseProperties (fileContent)
-// } else {
-//     console.error(`Failed to read file: ${propertiesFilePath}`);
-// }
-
 // Reading the property file content
 export function readPropertiesFile(propertiesFilePath) {
     const file = open(propertiesFilePath);
