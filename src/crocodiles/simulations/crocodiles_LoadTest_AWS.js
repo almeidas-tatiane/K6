@@ -1,5 +1,3 @@
-import { group } from 'k6';
-import Crocodiles from '../requests/crocodiles.js';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 // Verify buildspec.yml to execute tests at AWS using codebuild.
@@ -21,18 +19,24 @@ export const options = {
 };
 
 export default function () {
-  const crocodiles = new Crocodiles();
+  const BASE_URL = 'https://test-api.k6.io';
+  const sentHeaders = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
 
-  group('GetAllCrocodiles', () => {
-    crocodiles.getAllCrocodiles();
-    
-  }
-  );
+  const response = http.get(`${BASE_URL}/public/crocodiles/`, sentHeaders);
+
+
+  check(response, {
+    'Status code 200': (resp) => resp.status === 200,
+  });
 }
 
 export function handleSummary(data) {
   return {
-    "reports/crocodiles_SmokeTest.html": htmlReport(data),
+    "reports/crocodiles_LoadTestAWS.html": htmlReport(data),
   };
 }
 
