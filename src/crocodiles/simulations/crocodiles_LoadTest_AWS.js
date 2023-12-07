@@ -38,7 +38,7 @@ export default function () {
 
 export function handleSummary(data) {
   return {
-    "crocodiles_LoadTestAWS.html": htmlReport(data),
+    "index.html": htmlReport(data),
   };
 }
 
