@@ -1,5 +1,5 @@
 import { group } from 'k6';
-import Crocodiles from '../requests/crocodiles.js';
+import Crocodiles from '../requests/crocodilesClass.js';
 // import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 export const options = {
