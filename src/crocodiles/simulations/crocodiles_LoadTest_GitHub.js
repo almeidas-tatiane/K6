@@ -3,6 +3,7 @@ import { check } from 'k6';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 // Verify load-test.yml in .github\workflows to execute tests at GitHub workflows
+// Actions used at load-test.yml available at GitHub Actions Marketplace
 
 export const options = {
   stages:[
