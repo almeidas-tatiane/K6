@@ -1,5 +1,5 @@
 # K6
-In this repository you can find some projects in K6 developed during my learning curve.
+In this repository you will find some projects in K6 developed during my learning curve.
 
 ### 📂**K6 Installation**
 - K6 Documentation: https://grafana.com/docs/k6/latest/get-started/installation/
