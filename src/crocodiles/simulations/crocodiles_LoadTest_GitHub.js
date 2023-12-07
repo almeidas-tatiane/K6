@@ -8,7 +8,7 @@ import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporte
 export const options = {
   stages:[
     { duration: '1m', target: 100 }, // traffic ramp-up from 1 to 100 users over 1 minutes.
-    { duration: '5m', target: 100 }, // stay at 100 users for 5 minutes
+    { duration: '3m', target: 100 }, // stay at 100 users for 5 minutes
     { duration: '1m', target: 0 }, // ramp-down to 0 users
 
   ],
