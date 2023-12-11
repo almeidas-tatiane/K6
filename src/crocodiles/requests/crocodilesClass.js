@@ -6,16 +6,33 @@ export default class Crocodiles {
 
     getAllCrocodiles() {
 
-        const requestName= 'GetAllCrocodiles';
+        const requestNameAll= 'GetAllCrocodiles';
 
-        const sentHeaders = {
+        const sentHeadersAll = {
             headers: {
                 'Content-Type': 'application/json'
             }
         };
 
-        const response = http.get(`${getUrlByKey('api')}/public/crocodiles/`, sentHeaders);
+        const response = http.get(`${getUrlByKey('api')}/public/crocodiles/`, sentHeadersAll);
 
+
+        check(response, {
+            'Status code 200': (resp) => resp.status === 200,
+        });
+    }
+
+    getCrocodilesbyID(){
+        const requestNameById = 'GetCrocodilesByID';
+        const id = random.id();
+
+        const sentHeadersById = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        const response = http.get(`${getUrlByKey('api')}/public/crocodiles/${id}`, sentHeadersById);
 
         check(response, {
             'Status code 200': (resp) => resp.status === 200,
