@@ -16,7 +16,8 @@ In this repository you will find some projects in K6 developed during my learnin
 - In the reports folder, you'll find the HTML report of execution.
 
 
-### **Steps to execute the simulation**
+### ![image](https://github.com/almeidas-tatiane/K6/assets/68197687/b84f403c-5736-426f-96bd-a69e4bcabfdc)
+**Steps to execute the simulation**
 - In your terminal, go to path: K6\src\crocodiles\simulations;
 - Type: k6 run -e env=hlg crocodiles_SmokeTest.js and press ENTER key;
 - The value hlg used in the command line came from application.properties file, from the struture **hlg**.url.api=https://test-api.k6.io
