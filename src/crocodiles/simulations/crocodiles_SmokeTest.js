@@ -21,6 +21,10 @@ export default function () {
     
   }
   );
+
+  group ('GetCrocodilesById', () => {
+    crocodiles.getCrocodilesbyID();
+  })
 }
 
 // export function handleSummary(data) {
