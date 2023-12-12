@@ -11,10 +11,10 @@ export const options = {
 export default function () {
     const users = new Users();
 
-    // group('createNewUser', () => {
-    //   users.createNewUser();
-    // }
-    // );
+    group('createNewUser', () => {
+      users.createNewUser();
+    }
+    );
 
     group('Login', () => {
         users.login();
