@@ -24,7 +24,11 @@ export default function () {
 
   group ('GetCrocodilesById', () => {
     crocodiles.getCrocodilesbyID();
-  })
+  });
+
+  group ('CreateNewCrocodiles', () => {
+    crocodiles.createNewCrocodile();
+  });
 }
 
 // export function handleSummary(data) {
