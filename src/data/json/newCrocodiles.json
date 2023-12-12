@@ -1,0 +1,84 @@
+{
+"crocodiles": [
+    {
+      "name": "Danilo",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Gil",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Mirela",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Guilherme",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Charles",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Ciro",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Saulo",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Olívia",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Franco",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Baltazar",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Matias",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Manuel",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Ariadna",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Sabrina",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Simão",
+      "sex": "Male",
+      "date_of_birth": "12/12/1981"
+    },
+    {
+      "name": "Suzana",
+      "sex": "Female",
+      "date_of_birth": "12/12/1981"
+    }
+  ]
+}
