@@ -16,16 +16,22 @@ export default class Users {
             }
         }
 
-        const body = {
-            username: csvData[Math.floor(Math.random() * csvData.length)].username,
-            first_name: csvData[Math.floor(Math.random() * csvData.length)].first_name,
-            last_name: csvData[Math.floor(Math.random() * csvData.length)].last_name,
-            email: csvData[Math.floor(Math.random() * csvData.length)].email,
-            password: csvData[Math.floor(Math.random() * csvData.length)].password
-        }
+        const USER = csvData[Math.floor(Math.random() * csvData.length)].username;
+        const FIRST_NAME = csvData[Math.floor(Math.random() * csvData.length)].first_name;
+        const LAST_NAME = csvData[Math.floor(Math.random() * csvData.length)].last_name;
+        const EMAIL = csvData[Math.floor(Math.random() * csvData.length)].email;
+        const PASSWORD = csvData[Math.floor(Math.random() * csvData.length)].password;
 
 
-        const response = http.post(`${getUrlByKey('api')}/user/register/`, body, sentHeadersUsers);
+
+        const response = http.post(`${getUrlByKey('api')}/user/register/`, sentHeadersUsers, {
+            username: USER,
+            first_name: FIRST_NAME,
+            last_name: LAST_NAME,
+            email: EMAIL,
+            password: PASSWORD
+        });
+        console.log(USER, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD);
         
         check(response, {
             'Status code 201': (resp) => resp.status === 201,
