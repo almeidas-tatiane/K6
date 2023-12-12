@@ -3,6 +3,7 @@ import { check } from 'k6';
 import { getUrlByKey } from '../../utils/urlProperties.js';
 import { SharedArray } from "k6/data";
 import { login } from '../../../user/requests/userClass.js';
+import Users from '../../user/requests/userClass.js';
 
 const data = new SharedArray('Leitura do json', function() {
     return JSON.parse(open('../../data/json/crocodilesById.json')).crocodiles;
