@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check } from 'k6';
 import { getUrlByKey } from '../../utils/urlProperties.js';
 import { SharedArray } from "k6/data";
-import { login } from '../../../../user/requests/userClass.js';
+import Users, { login } from '../../user/requests/userClass.js';
 
 const data = new SharedArray('Leitura do json', function() {
     return JSON.parse(open('../../data/json/crocodilesById.json')).crocodiles;
@@ -46,6 +46,7 @@ export default class Crocodiles {
 
     createNewCrocodile(){
 
+        const users = new Users();
         const sentHeadersNewCrocodile = {
             headers: {
                 'Content-Type': 'application/json'
@@ -58,12 +59,12 @@ export default class Crocodiles {
             date_of_birth: dataNewCrocodile[Math.floor(Math.random() * dataNewCrocodile.length)].date_of_birth
         };
 
-        login();
+        users.login();
         const responseNewCrocodile = http.post(`${getUrlByKey('api')}/my/crocodiles/`, bodyNewCrocodile, { headers: sentHeadersNewCrocodile }  );
         console.log(bodyNewCrocodile);
         console.log(responseNewCrocodile);
         
-        check(responseLogin, {
+        check(responseNewCrocodile, {
             'Status code 201': (resp) => resp.status === 201,
         });
 
