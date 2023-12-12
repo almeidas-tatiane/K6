@@ -25,7 +25,7 @@ export default class Users {
         }
 
 
-        const response = http.post(`${getUrlByKey('api')}user/register/`, body, sentHeadersUsers);
+        const response = http.post(`${getUrlByKey('api')}/user/register/`, body, sentHeadersUsers);
         
         check(response, {
             'Status code 201': (resp) => resp.status === 201,
