@@ -1,4 +1,4 @@
-import http from 'k6'
+import http from 'k6/http'
 import { check } from 'k6'
 import { getUrlByKey } from '../../utils/urlProperties.js';
 import papaparse from 'https://jslib.k6.io/papaparse/5.1.1/index.js';
@@ -32,10 +32,5 @@ export default class Users {
         });
 
     };
-
-    
-
-
-
 }
 
