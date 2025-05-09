@@ -2,8 +2,14 @@ import { group } from 'k6';
 import Pets from '../requests/petClass.js';
 
 export const options = {
-    vus: 1,
-    iterations: 4
+    vus: 10,
+    iterations: 100,
+    // Configuration to Grafana Cloud
+    cloud: {
+    projectID: '3671111',
+    // Test runs with the same name groups test runs together, default project id
+    name: 'Pets'
+  }
 };
 
 export default function () {
