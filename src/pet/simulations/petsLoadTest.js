@@ -6,8 +6,7 @@ export const options = {
     iterations: 100,
     // Configuration to Grafana Cloud
     cloud: {
-    projectID: '3671111',
-    // Test runs with the same name groups test runs together, default project id
+    projectID: '3671111', // Test runs with the same name groups test runs together, default project id
     name: 'Pets'
   }
 };
