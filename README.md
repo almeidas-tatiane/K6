@@ -22,4 +22,5 @@ In this repository you will find some projects in K6 developed during my learnin
 - The value hlg used in the command line came from application.properties file, from the struture **hlg**.url.api
 - To verify the execution in real time, type K6_WEB_DASHBOARD=true k6 run -e env=hlg petsLoadTest.js and press ENTER key;
 - While test is running, open a browser tab and paste the address: http://127.0.0.1:5665 it will show you the execution results in real time.
+- To visualize at Grafana cloud, type k6 cloud -e env=hlg petsLoadTest.js
 
