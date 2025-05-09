@@ -1,62 +1,87 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
+import { getUrlByKey } from '../../utils/urlProperties.js';
+import { SharedArray } from 'k6/data';
 
-export const options = {
-    scenarios: {
-        AddPet: {
-            executor: 'ramping-vus',
-            startVUs: 0,
-            stages: [
-                {duration: '1m', target: 20},
-                {duration: '5m', target: 20},
-                {duration: '5m', target: 20},
-                {duration: '1m', target: 10},
-            ],
-            gracefulRampDown: '10s'
-        },
-    },
-    thresholds: {
-        http_req_failed: ['rate<0.01'], 
-        http_req_duration: ['p(99)<1000'], 
-      },
-};
+const dataNewPets = new SharedArray('Leitura do json', function() {
+    return JSON.parse(open('../../data/json/pets.json')).pets;
+});
 
-export default function () {
-    const url = 'https://petstore3.swagger.io/api/v3/pet';
-    const payload = JSON.stringify({
-        id: 10,
-        name: 'dog',
-        category: {
-            id: 1,
-            name:'Dogs'
-        },
-        photoUrls: [
-            'string'
-        ],
-        tags: [
-            {
-                id: 0,
-                name: 'string'
-            }
-        ],
-        status: 'available'
-    });
-
-    const params = {
-        headers: {
+export default class Pets {
+    createAddPets(){
+        const sentHeadersAddPets = {
             'accept': 'application/json',
             'Content-Type': 'application/json'
-        },
+        }
+
+        const csvAddPet = {
+            id: dataNewPets[Math.floor(Math.random() * dataNewPets.length)].id,
+            name:  dataNewPets[Math.floor(Math.random() * dataNewPets.length)].name
+
+            
+        }
+
+        const bodyAddPet = JSON.stringify(
+            {
+                "id": csvAddPet.id,
+                "name": csvAddPet.name,
+                "category": {
+                    "id": csvAddPet.id,
+                    "name": csvAddPet.name
+                },
+                "photoUrls": [
+                    "string"
+                ],
+                "tags": [
+                    {
+                    "id": csvAddPet.id,
+                    "name": "string"
+                    }
+                ],
+                "status": "available"
+                }
+        )
+
+        const responseAddPets = http.post(`${getUrlByKey('petstore')}/api/v3/pet`, bodyAddPet, { headers: sentHeadersAddPets }  );
+        console.log(bodyAddPet);
+        console.log(responseAddPets);
+
+        check(responseAddPets, {
+            'Status code 200': (resp) => resp.status === 200,
+        });
     };
 
-    const res = http.post(url,payload,params);
+    getPetByStatus(){
+        const sentHeadersGetPets = {
+            'accept': 'application/json'
+        }
 
-    check(res, {
-        'response code was 200': (res) => res.status === 200,
-    });
+        const responseGetPetByStatus = http.get(`${getUrlByKey('petstore')}/api/v3/pet/findByStatus?status=available`, {headers: sentHeadersGetPets});
 
+        check(responseGetPetByStatus, {
+            'Status code 200': (resp) => resp.status === 200,
+        });
+
+    };    
+    
+    getPetById(){
+        const sentHeadersGetPets = {
+            'accept': 'application/json'
+        }
+
+        const bodyGetPetById = {
+            id: dataNewPets[Math.floor(Math.random() * dataNewPets.length)].id
+        }
+
+        const responseGetPetById = http.get(`${getUrlByKey('petstore')}/api/v3/pet/`, bodyGetPetById, {headers: sentHeadersGetPets});
+
+        check(responseGetPetById, {
+            'Status code 200': (resp) => resp.status === 200,
+        });
+
+    }
+
+     }
 
 
     
-    
-}
